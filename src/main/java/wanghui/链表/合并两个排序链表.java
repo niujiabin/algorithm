@@ -1,5 +1,8 @@
 
-package 链表;
+package wanghui.链表;
+
+import common.ListNode;
+
 public class 合并两个排序链表 {
 
     public static ListNode merge(ListNode list1, ListNode list2) {
