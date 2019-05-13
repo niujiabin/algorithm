@@ -10,7 +10,6 @@ public class 复杂链表复制 {
             this.label = label;
         }
     }
-
     /**
      * 用map的解法
      * @param pHead
