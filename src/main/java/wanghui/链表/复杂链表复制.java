@@ -1,4 +1,4 @@
-package Test;
+package wanghui.链表;
 
 public class 复杂链表复制 {
     static public class RandomListNode {
