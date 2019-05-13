@@ -1,7 +1,9 @@
 package Test;
 
+import common.ListNode;
+
 public class 倒数第K个结点 {
-    public ListNode FindKthToTail(ListNode head,int k) {
+    public ListNode FindKthToTail(ListNode head, int k) {
         ListNode slow = head;
         ListNode fast = head;
         while(fast!=null && k>0) {
