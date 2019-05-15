@@ -1,4 +1,7 @@
-package Test;
+
+package wanghui.链表;
+
+import common.ListNode;
 
 public class 删除倒数第k个节点 {
     public ListNode removeNthFromEnd(ListNode head, int n) {
