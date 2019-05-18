@@ -35,7 +35,7 @@ public class PerfectBox<T> {
                     throw new RuntimeException("bean name" + beanName + " haven been existed");
                 }
             } else {
-                throw new RuntimeException("beanName can not be empty!");
+                throw new RuntimeException("bean name can not be empty!");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);

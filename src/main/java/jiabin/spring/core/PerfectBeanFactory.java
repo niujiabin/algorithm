@@ -1,8 +1,8 @@
 package jiabin.spring.core;
 
-import jiabin.spring.core.PerfectBean;
-import jiabin.spring.test.bean.Student;
-
+/**
+ * @author Administrator
+ */
 public class PerfectBeanFactory<T> {
 
     public static PerfectBean create() {
