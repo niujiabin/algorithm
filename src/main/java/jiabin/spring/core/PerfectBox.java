@@ -28,15 +28,12 @@ public class PerfectBox<T> {
                         if (!singletonMap.containsKey(beanName)) {
                             singletonMap.put(beanName, object);
                         }
-                    } else {
-                        throw new RuntimeException("class path can not be empty");
                     }
-                } else {
-                    throw new RuntimeException("bean name" + beanName + " haven been existed");
+                    throw new RuntimeException("class path can not be empty");
                 }
-            } else {
-                throw new RuntimeException("bean name can not be empty!");
+                throw new RuntimeException("bean name" + beanName + " haven been existed");
             }
+            throw new RuntimeException("bean name can not be empty!");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
