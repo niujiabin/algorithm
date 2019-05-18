@@ -2,9 +2,6 @@ package jiabin.leetcode.链表;
 
 import common.LinkListUtils;
 import common.ListNode;
-import sun.awt.image.ImageWatched;
-
-import java.util.List;
 
 /**
  * @author Administrator
