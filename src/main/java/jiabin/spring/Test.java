@@ -19,6 +19,11 @@ public class Test {
          *      <property name="age">12</property>
          * </bean>
          */
+
+
+        /**
+         * TODO  增加singleton 和 prototype属性
+         */
         PerfectBean perfectBean = PerfectBeanFactory.create();
         perfectBean.setBeanName("student").setClassPath("jiabin.spring.test.bean.Student");
 
