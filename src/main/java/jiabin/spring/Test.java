@@ -12,17 +12,21 @@ import java.util.List;
 public class Test {
 
     public static void main(String[] args) {
-
+        /**
+         * like :
+         * <bean name="student" class="jiabin.spring.test.bean.Student">
+         *      <property name="name">jiabin.niu</property>
+         *      <property name="age">12</property>
+         * </bean>
+         */
         PerfectBean perfectBean = PerfectBeanFactory.create();
         perfectBean.setBeanName("student").setClassPath("jiabin.spring.test.bean.Student");
 
         PerfectBeanProperty propertyName = new PerfectBeanProperty();
-        propertyName.setName("name");
-        propertyName.setValue("jiabin.niu");
+        propertyName.setName("name").setValue("jiabin.niu");
 
         PerfectBeanProperty propertyAge = new PerfectBeanProperty();
-        propertyAge.setName("age");
-        propertyAge.setValue("12");
+        propertyAge.setName("age").setValue("12");
 
         List<PerfectBeanProperty> properties = new ArrayList<>();
         properties.add(propertyName);

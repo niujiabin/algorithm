@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * 完美盒子  管理对象的容器
+ * 完美盒子  管理对象的容器   作为Spring的练习
  *
  * @author Administrator
  */
@@ -54,11 +54,10 @@ public class PerfectBox<T> {
             if (!field.isAccessible()) {
                 field.setAccessible(true);
             }
-
             if (field.getType() == String.class) {
                 field.set(bean, String.valueOf(property.getValue()));
             }
-
+            //TODO 添加其它数据类型的支持
         }
 
         return bean;
