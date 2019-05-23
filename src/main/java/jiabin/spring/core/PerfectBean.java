@@ -2,6 +2,8 @@ package jiabin.spring.core;
 
 import jiabin.spring.test.bean.Student;
 
+import java.util.List;
+
 /**
  * @author Administrator
  */
@@ -10,6 +12,16 @@ public class PerfectBean<T> {
     private Object bean;
     private String beanName;
     private String classPath;
+    private List<PerfectBeanProperty> beanPropertyList;
+
+    public List<PerfectBeanProperty> getBeanPropertyList() {
+        return beanPropertyList;
+    }
+
+    public PerfectBean<T> setBeanPropertyList(List<PerfectBeanProperty> beanPropertyList) {
+        this.beanPropertyList = beanPropertyList;
+        return this;
+    }
 
     public void setBean(Object bean) {
         this.bean = bean;
