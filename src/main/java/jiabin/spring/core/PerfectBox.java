@@ -16,7 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class PerfectBox<T> {
 
-    protected static Map<String, Object> singletonMap = new ConcurrentHashMap<>();
+    protected static Map<String, PerfectBean> singletonMap = new ConcurrentHashMap<>();
 
     public static void registerBean(PerfectBean bean) {
         try {
@@ -28,7 +28,8 @@ public class PerfectBox<T> {
                     if (StringUtils.isNotEmpty(classPath)) {
                         //create bean
                         Object object = createBean(bean);
-                        singletonMap.putIfAbsent(beanName, object);
+                        bean.setBean(object);
+                        singletonMap.putIfAbsent(beanName, bean);
                     } else {
                         throw new RuntimeException("class path can not be empty");
                     }
@@ -56,6 +57,18 @@ public class PerfectBox<T> {
             }
             if (field.getType() == String.class) {
                 field.set(bean, String.valueOf(property.getValue()));
+            } else if (field.getType() == int.class || field.getType() == Integer.class) {
+                field.set(bean, Integer.valueOf(property.getValue()));
+            }
+            //存在引用
+            //TODO 解决循环依赖问题
+            if (property.getReferenceBean() != null) {
+                if (singletonMap.get(property.getName()) != null) {
+                    field.set(bean, singletonMap.get(property.getName()).getBean());
+                } else {
+                    //创建bean
+
+                }
             }
             //TODO 添加其它数据类型的支持
         }
@@ -63,7 +76,7 @@ public class PerfectBox<T> {
         return bean;
     }
 
-    public static <T> T getBean(String beanName, Class<T> beanClass) {
-        return (T) singletonMap.get(beanName);
+    public static <T> T getBean(String beanName) {
+        return (T) singletonMap.get(beanName).getBean();
     }
 }

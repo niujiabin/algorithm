@@ -8,6 +8,16 @@ public class PerfectBeanProperty {
 
     private String name;
     private String value;
+    private PerfectBean referenceBean;
+
+    public PerfectBean getReferenceBean() {
+        return referenceBean;
+    }
+
+    public PerfectBeanProperty setReferenceBean(PerfectBean referenceBean) {
+        this.referenceBean = referenceBean;
+        return this;
+    }
 
     public String getName() {
         return name;

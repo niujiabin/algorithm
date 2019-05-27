@@ -10,6 +10,7 @@ import java.util.List;
 public class PerfectBean<T> {
 
     private Object bean;
+    private Object ref;
     private String beanName;
     private String classPath;
     private List<PerfectBeanProperty> beanPropertyList;
@@ -46,6 +47,15 @@ public class PerfectBean<T> {
 
     public PerfectBean<T> setClassPath(String classPath) {
         this.classPath = classPath;
+        return this;
+    }
+
+    public Object getRef() {
+        return ref;
+    }
+
+    public PerfectBean<T> setRef(Object ref) {
+        this.ref = ref;
         return this;
     }
 }
