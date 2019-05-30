@@ -2,6 +2,8 @@ package jiabin.leetcode.链表;
 
 import common.ListNode;
 
+import java.util.List;
+
 /**
  * @author : jiabin.niu
  * @date : 2019.05.29 22:09
@@ -29,18 +31,44 @@ public class 重排链表 {
         }
 
         //1 2 3 4 5
+
+        //1 2 3 4
         ListNode fast = head;
         ListNode slow = head;
-        while (fast != null && fast.next != null) {
+        //快慢指针表示  如果有时候分不清 可以找四五个数据模拟一下  很快
+        while (fast.next != null && fast.next.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
 
-
-        //1 2 3
-        ListNode second = slow.next;
-        ListNode first = slow;
+        ListNode newNode = slow.next;
         slow.next = null;
+
+        ListNode cur = newNode;
+        ListNode pre = null;
+        //链表翻转 记录prev
+        //a ->b ->c
+        //null  a(pre)   b(cur)  c(tempNode)
+        while (cur != null) {
+            ListNode tempNode = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = tempNode;
+        }
+
+        //cur 1 2 3
+        //pre 4 5
+        cur = head;
+        while (cur != null && pre != null) {
+            ListNode temp1 = cur.next;
+            ListNode temp2 = pre.next;
+
+            cur.next = pre;
+            cur = temp1;
+
+            pre.next = temp1;
+            pre = temp2;
+        }
 
 
     }
