@@ -17,6 +17,13 @@ import java.util.List;
 public class Test {
 
     public static void main(String[] args) {
+
+        String x = new String("xx").intern();
+
+        String xx  = x + 1 + "xxx" + x;
+
+
+
         /**
          * like :
          * <bean name="student" class="jiabin.spring.test.bean.Student">
