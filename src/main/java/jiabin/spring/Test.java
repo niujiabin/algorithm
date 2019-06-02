@@ -4,6 +4,7 @@ import jiabin.spring.core.PerfectBean;
 import jiabin.spring.core.PerfectBeanFactory;
 import jiabin.spring.core.PerfectBeanProperty;
 import jiabin.spring.core.PerfectBox;
+import jiabin.spring.parser.XmlParser;
 import jiabin.spring.test.bean.Animal;
 import jiabin.spring.test.bean.Student;
 
@@ -18,10 +19,7 @@ public class Test {
 
     public static void main(String[] args) {
 
-        String x = new String("xx").intern();
-
-        String xx  = x + 1 + "xxx" + x;
-
+        PerfectBox perfectBox = XmlParser.loadResource("perfectContext.xml");
 
 
         /**
