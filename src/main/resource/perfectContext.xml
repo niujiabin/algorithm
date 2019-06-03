@@ -1,0 +1,13 @@
+<perfect>
+    <bean name="student" class="jiabin.spring.test.bean.Student">
+        <property name="name">jiabin.niu</property>
+        <property name="age">12</property>
+        <property name="an" ref="animal"></property>
+    </bean>
+
+    <bean name="animal" class="jiabin.spring.test.bean.Animal">
+        <property name="name">111</property>
+        <property name="age">12</property>
+    </bean>
+
+</perfect>
