@@ -3,15 +3,14 @@ package wanghui.栈;
 import common.TreeNode;
 import sun.reflect.generics.tree.Tree;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class BinaryTreeInorderTraversal {
 
     /**
      * 递归版本
      */
+
     List<Integer> ans = new ArrayList<>();
     public List<Integer> inorderTraversal(TreeNode root) {
         if(root==null) {
@@ -23,35 +22,47 @@ public class BinaryTreeInorderTraversal {
         return ans;
     }
 
+
     /**
-     * 非递归版本
+     * 非递归版本(我想的)
      * @param root
      * @return
      */
-    public List<Integer> inorderTraversal1(TreeNode root) {
-        if(root==null) {
-            return ans;
-        }
-        /**
-        Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
-        while (!stack.isEmpty()) {
-            TreeNode node = stack.pop();
-            if(node.left!=null) {
-                stack.push(node);
-                stack.push(node.left);
-                if(node.right!=null) {
-                    stack.push(node.right);
-                }
-            }else {
-                ans.add(node.val);
-                if(node.right!=null) {
-                    stack.push(node.right);
+        public static List<Integer> inorderTraversal1(TreeNode root) {
+            List<Integer> ans = new ArrayList<>();
+            if(root==null) {
+                return ans;
+            }
+            Stack<TreeNode> stack = new Stack<>();
+            HashSet<TreeNode> set = new HashSet<>();
+            stack.push(root);
+            while (!stack.isEmpty()){
+                TreeNode node = stack.pop();
+                if(!set.contains(node)) {
+                    if(node.right!=null) {
+                        stack.push(node.right);
+                    }
+                    stack.push(node);
+                    set.add(node);
+                    if(node.left!=null) {
+                        stack.push(node.left);
+                    }
+                }else {
+                    ans.add(node.val);
                 }
             }
-        }
-         **/
-        return ans;
+            return ans;
+
+    }
+
+    public static void main(String[] args) {
+        TreeNode node = new TreeNode(1);
+        node.left = new TreeNode(2);
+        node.right = new TreeNode(3);
+        List<Integer> integers = inorderTraversal1(node);
+        integers.forEach(integer -> {
+            System.out.println(integer+" " );
+        });
     }
 
 }
