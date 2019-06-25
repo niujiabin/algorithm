@@ -3,7 +3,7 @@ package wanghui.链表;
 import common.ListNode;
 
 public class 链表partition {
-    public ListNode partition(ListNode head, int x) {
+    public static ListNode partition(ListNode head, int x) {
         if(head==null || head.next==null) {
             return head;
         }
@@ -25,4 +25,19 @@ public class 链表partition {
         cur1.next = stick2.next;
         return stick1.next;
     }
+
+    public static void main(String[] args) {
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(4);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(2);
+        head.next.next.next.next = new ListNode(5);
+        head.next.next.next.next.next = new ListNode(2);
+        ListNode node =  partition(head, 3);
+        while(node!=null) {
+            System.out.println(node.val);
+            node = node.next;
+        }
+    }
+
 }
