@@ -20,6 +20,13 @@ public class BinaryTreePreorderTravelsal {
         return ans;
     }
 
+
+
+    /**
+     * 非递归（我想的）
+     * @param root
+     * @return
+     */
     public List<Integer> preorderTraversal1(TreeNode root) {
         if(root==null) {
             return ans;
@@ -42,7 +49,38 @@ public class BinaryTreePreorderTravelsal {
                 ans.add(node.val);
             }
         }
+
+
         return ans;
     }
 
+    /**
+     * 非递归（最优）
+     * @param root
+     * @return
+     */
+    public List<Integer> preorderTraversal2(TreeNode root) {
+        if(root==null) {
+            return ans;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+
+        stack.add(root);
+        while(!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+
+            if(node.right!=null) {
+                stack.push(node.right);
+            }
+            if(node.left!=null) {
+                stack.push(node.left);
+            }
+
+            stack.push(node);
+
+            ans.add(node.val);
+
+        }
+        return ans;
+    }
 }

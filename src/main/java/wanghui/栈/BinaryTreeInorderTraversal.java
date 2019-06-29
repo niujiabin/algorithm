@@ -55,6 +55,31 @@ public class BinaryTreeInorderTraversal {
 
     }
 
+    /**
+     * 非递归版本（最优）
+     * @param root
+     * @return
+     */
+    public static List<Integer> inorderTraversal2(TreeNode root) {
+        List<Integer> ans = new ArrayList<>();
+        if(root==null) {
+            return ans;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        while (!stack.isEmpty() || root!=null){
+            if(root!=null) {
+                stack.push(root);
+                root=root.left;
+            }else {
+                root = stack.pop();
+                ans.add(root.val);
+                root = root.right;
+            }
+        }
+        return ans;
+
+    }
+
     public static void main(String[] args) {
         TreeNode node = new TreeNode(1);
         node.left = new TreeNode(2);
