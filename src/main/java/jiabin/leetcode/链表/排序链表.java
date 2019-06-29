@@ -18,7 +18,7 @@ public class 排序链表 {
         //找到链表中间节点的方式 套路  记住这块代码
         ListNode p = head, q = head, pre = null;
         while (q != null && q.next != null) {
-            pre = q;
+            pre = p;
             p = p.next;
             q = q.next.next;
         }
