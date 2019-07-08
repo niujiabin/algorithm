@@ -20,7 +20,7 @@ public class Provider {
         //Registry Info
         RegistryConfig registryConfig = new RegistryConfig();
         //注册地址
-        registryConfig.setAddress("zookeeper://127.0.0.1:2181");
+        registryConfig.setAddress("zookeeper://192.168.3.3:2181");
         registryConfig.setUsername("jiabin.niu");
         registryConfig.setPassword("qunar.1234");
 

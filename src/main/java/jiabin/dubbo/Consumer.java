@@ -4,6 +4,8 @@ import com.alibaba.dubbo.config.ApplicationConfig;
 import com.alibaba.dubbo.config.ReferenceConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
 
+import java.util.ServiceLoader;
+
 public class Consumer {
 
     public static void main(String[] args) {
@@ -15,13 +17,12 @@ public class Consumer {
 
         // Registry Info
         RegistryConfig registry = new RegistryConfig();
-        registry.setAddress("zookeeper://127.0.0.1:2181");
+        registry.setAddress("zookeeper://192.168.3.3:2181");
         registry.setUsername("aaa");
         registry.setPassword("bbb");
 
         // NOTES: ReferenceConfig holds the connections to registry and providers, please cache it for performance.
-
-        // Refer remote service
+        // Refer remote services
         ReferenceConfig<TestService> reference = new ReferenceConfig<>();
         // In case of memory leak, please cache.
         reference.setApplication(application);
