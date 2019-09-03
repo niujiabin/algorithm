@@ -2,6 +2,7 @@ package wanghui.数组;
 
 public class SetMatrixZeros {
         public void setZeroes(int[][] matrix) {
+
             boolean col = false;
             boolean row = false;
             int m = matrix.length;
@@ -52,5 +53,5 @@ public class SetMatrixZeros {
             }
 
         }
-    
+
 }
